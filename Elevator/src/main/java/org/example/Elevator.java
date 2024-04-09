@@ -1,60 +1,37 @@
 package org.example;
 
+import org.example.elevatorParts.Dashboard;
+import org.example.elevatorParts.Door;
+import org.example.elevatorParts.Floor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Elevator {
-    private int currentFloor;
     private int totalFloors;
+    private boolean isMoving;
+    private Door door;
+    private Dashboard dashboard;
+    private Floor currentFloor;
+    private List<Person> passengers;
+    private int maxPassengers;
+    private int maxWeight;
+    private int currentWeight;
 
-    public Elevator(int totalFloors) {
+
+    public Elevator(int totalFloors, int maxPassengers, int maxWeight) {
         this.totalFloors = totalFloors;
-        this.currentFloor = 1; // assuming the elevator starts at the first floor
-    }
-
-    public void moveUp() throws InterruptedException {
-        if (currentFloor < totalFloors) {
-            currentFloor++;
-            System.out.println("Elevator moving up to floor " + currentFloor);
-            Thread.sleep(2000); // wait for 2 seconds
-        } else {
-            System.out.println("Elevator is already at the top floor");
-        }
-    }
-
-    public void moveDown() throws InterruptedException {
-        if (currentFloor > 1) {
-            currentFloor--;
-            System.out.println("Elevator moving down to floor " + currentFloor);
-            Thread.sleep(2000); // wait for 2 seconds
-        } else {
-            System.out.println("Elevator is already at the ground floor");
-        }
-    }
-
-    public void goToFloor(int floor) throws InterruptedException {
-        if (floor > totalFloors || floor < 1) {
-            System.out.println("Invalid floor number");
-        } else {
-            while (currentFloor < floor) {
-                moveUp();
-            }
-            while (currentFloor > floor) {
-                moveDown();
-            }
-        }
-
-        System.out.println("Elevator has arrived at floor " + currentFloor);
-    }
-
-    public int getCurrentFloor() {
-        return currentFloor;
+        this.isMoving = false;
+        this.door = new Door();
+        this.dashboard = new Dashboard();
+        this.currentFloor = new Floor(0, 0);
+        this.passengers = new ArrayList<Person>();
+        this.maxPassengers = maxPassengers;
+        this.maxWeight = maxWeight;
+        this.currentWeight = 0;
     }
 
 
-    @Override
-    public String toString() {
-        return "Elevator{" +
-                "currentFloor=" + currentFloor +
-                ", totalFloors=" + totalFloors +
-                '}';
-    }
+
 }
