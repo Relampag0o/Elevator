@@ -4,24 +4,21 @@ public class Door {
     private boolean status;
 
 
-
     public Door() {
         this.status = false;
     }
 
     public void open() {
-        if (status) {
+        if (status)
             System.out.println("Door is already open");
-        } else {
+        else
             status = true;
-            System.out.println("Door is opening");
-        }
     }
 
     public void close() {
-        if (!status) {
+        if (!status)
             System.out.println("Door is already closed");
-        } else {
+        else {
             status = false;
             System.out.println("Door is closing");
         }

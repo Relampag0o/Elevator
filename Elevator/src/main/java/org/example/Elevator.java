@@ -182,7 +182,7 @@ public class Elevator {
             this.wait(2000); // we suppose that it takes 2 seconds to move to the next floor...
         }
         this.currentFloor.setFloorNumber(desiredFloor);
-        this.currentFloor.setMetersFromGround(currentFloor.getMetersFromGround() * 2);
+        this.currentFloor.setMetersFromGround(desiredFloor * 2);
 
         this.door.open();
         System.out.println("Elevator door is open");
