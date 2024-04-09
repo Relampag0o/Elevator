@@ -37,6 +37,9 @@ public class Elevator {
         System.out.println("Elevator actual passengers: " + this.passengers.size());
         System.out.println("Elevator is moving: " + isMoving);
         System.out.println("Elevator door status: " + door.isStatus());
+        System.out.println("Elevator dashboard: " + dashboard.toString());
+        System.out.println("Height from ground: " + currentFloor.getMetersFromGround() + " meters");
+
 
         if (currentFloor.getFloorNumber() < totalFloors && !isMoving && calculateTotalWeight() < maxWeight && this.passengers.size() < 8) {
             Scanner scanner = new Scanner(System.in);

@@ -16,4 +16,11 @@ public class Button {
     public void setType(ButtonType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Button{" +
+                "type=" + type +
+                '}';
+    }
 }

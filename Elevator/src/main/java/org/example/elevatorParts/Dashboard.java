@@ -39,5 +39,10 @@ public class Dashboard {
         System.out.println("Button pressed: " + button.getType());
     }
 
-
+    @Override
+    public String toString() {
+        return "Dashboard{" +
+                "buttons=" + buttons +
+                '}';
+    }
 }
